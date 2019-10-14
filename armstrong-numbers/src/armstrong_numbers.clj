@@ -2,11 +2,11 @@
 
 
 ;;; Math/pow will lose precision for 9 to the 17th power (9^17)
-(defn pow [x n]
+(defn- pow [x n]
   (reduce * (repeat n x)))
 
 ;; Version 1
-(defn getdigit [num digit]
+(defn- getdigit [num digit]
   (Character/getNumericValue (.charAt (str num) digit)))
 
 (defn armstrong2? [num]
@@ -17,7 +17,7 @@
                  #(pow (getdigit num %) len)
                  (range len))))))
 ;; Version 2
-(defn sumNumberAndString [number numberInString len]
+(defn- sumNumberAndString [number numberInString len]
   (+
     number
     (pow (Integer/valueOf ^String numberInString) len)))
