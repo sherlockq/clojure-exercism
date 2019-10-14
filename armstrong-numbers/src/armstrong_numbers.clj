@@ -14,19 +14,18 @@
     (= num
        (reduce +
                (map
-                #(pow (getdigit num %) len)
-                (range len))))))
+                 #(pow (getdigit num %) len)
+                 (range len))))))
 ;; Version 2
 (defn sumNumberAndString [number numberInString len]
   (+
-   number
-   (pow (Integer/valueOf numberInString) len)))
+    number
+    (pow (Integer/valueOf ^String numberInString) len)))
 
 (defn armstrong? [num]
   (let [len (.length (str num))]
     (= num
        (reduce
-        #(sumNumberAndString %1 %2 len)
-        0
-        (.split (str num) "")))))
-
+         #(sumNumberAndString %1 %2 len)
+         0
+         (.split (str num) "")))))
