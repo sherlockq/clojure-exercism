@@ -5,5 +5,4 @@
   (apply str (into () s)))
 
 (defn reverse-string [s]
-  (clojure.string/join (reduce conj '() (clojure.string/split s #"")))
-)
+  (clojure.string/join (reduce conj '() (clojure.string/split s #""))))
