@@ -1,5 +1,5 @@
 (ns allergies)
-(def allergies-score
+(def allergy-scores
   {:eggs         1
    :peanuts      2
    :shellfish    4
@@ -14,7 +14,7 @@
   (map key
        (filter
          (get-allergy-check-fn score)
-         allergies-score)))
+         allergy-scores)))
 
 (defn allergic-to? [score allergy]                          ;; <- arglist goes here
-  (boolean (allergy (set (allergies score)))))
+  ((get-allergy-check-fn score) (find allergy-scores allergy)))
